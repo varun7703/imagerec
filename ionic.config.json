@@ -1,8 +1,6 @@
 {
-  "name": "aws_rek",
+  "name": "",
   "app_id": "",
-  "type": "ionic-angular",
-  "integrations": {
-    "cordova": {}
-  }
+  "integrations": {},
+  "type": "ionic-angular"
 }

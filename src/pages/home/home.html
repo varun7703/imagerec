@@ -1,18 +1,35 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>
+      Ionic + AWS<button ion-button (click) = "hit()" full>hitritrinhfd</button>
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="edit = !edit">
+
+          <ion-icon name="unlock" *ngIf="edit"></ion-icon>
+          <ion-icon name="lock" *ngIf="!edit"></ion-icon>
+      </button>
+      
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
-
+ 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <h3 [hidden]="images.length !== 0" text-center>No Images found!</h3>
+ 
+  <ion-list>
+    <ion-card *ngFor="let img of images; let i = index">
+      <img [src]="img.url">
+      <button ion-button full color="danger" [style.margin]="0" *ngIf="edit" (click)="deleteImage(i)">
+              <ion-icon name="trash"></ion-icon>
+            </button>
+    </ion-card>
+  </ion-list>
+ 
+  <ion-fab right bottom>
+    <button ion-fab (click)="presentActionSheet()">
+       <ion-icon name="camera"></ion-icon>
+      </button>
+  </ion-fab>
+  
 </ion-content>
